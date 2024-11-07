@@ -1,6 +1,7 @@
 # MachineLearning
 
  The script begins by importing necessary libraries: 
+ 
  ```python
 import pandas as pd
 import torch
@@ -17,6 +18,7 @@ from sklearn.metrics import mean_absolute_error
     The text model uses BERT to extract features from text input.
     The image model uses ResNet-18 to extract features from images.
     A fully connected layer combines features from both models along with two additional inputs from tabular data.
+    
  ```python
 class MultimodalModel(nn.Module):
     def __init__(self):
@@ -37,6 +39,7 @@ class MultimodalModel(nn.Module):
 
     load_image: Loads an image from disk, resizes it to 224x224 pixels (the input size for ResNet), and converts it to a tensor.
     encode_text: Tokenizes the input text description and extracts the BERT embeddings.
+    
  ```python
 def load_image(image_path):
     preprocess = transforms.Compose([
@@ -55,6 +58,7 @@ def encode_text(description, tokenizer, model):
     The function reads a CSV file containing the dataset and splits it into training and validation sets.
     It initializes the tokenizer and text model from Hugging Face's library.
     The optimizer (Adam) and loss function (Mean Squared Error) are set up.
+    
  ```python
 def train_multimodal_model():
     # Load and split data
